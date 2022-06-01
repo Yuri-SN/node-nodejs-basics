@@ -10,11 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/AlreadyBored/node-nodejs-basics.git"
   },
-  "keywords": ["nodejs", "assignments", "alreadybored"],
+  "keywords": [
+    "nodejs",
+    "assignments",
+    "alreadybored"
+  ],
   "author": "alreadybored",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AlreadyBored/node-nodejs-basics/issues"
   },
-  "homepage": "https://github.com/AlreadyBored/node-nodejs-basics#readme"
+  "homepage": "https://github.com/AlreadyBored/node-nodejs-basics#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0"
+  }
 }
