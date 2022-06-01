@@ -2,6 +2,7 @@ import { createGzip } from 'zlib';
 import { createReadStream, createWriteStream } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { pipeline } from 'stream';
 
 export const compress = async () => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -15,6 +16,14 @@ export const compress = async () => {
   const gzip = createGzip();
 
   readableStream.pipe(gzip).pipe(writableStream);
+  pipeline(
+    readableStream,
+    gzip,
+    writableStream,
+    err => {
+      if (err) { throw new Error(err.message) }
+    }
+  )
 };
 
 compress();
