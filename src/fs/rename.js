@@ -14,14 +14,16 @@ export const rename = async () => {
     .then(() => {
       fs.access(newFilePath)
         .then(() => {
-          console.log(new Error('FS operation failed'));
+          console.log('FS operation failed');
+          throw new Error('FS operation failed');
         })
         .catch(() => {
           fs.rename(oldFilePath, newFilePath)
         })
     })
     .catch(() => {
-      console.log(new Error('FS operation failed'));
+      console.log('FS operation failed');
+      throw new Error('FS operation failed');
     })
 };
 

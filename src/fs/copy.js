@@ -10,7 +10,10 @@ export const copy = async () => {
   const newFolderPath = join(__dirname, newFolderName);
 
   access(newFolderPath)
-    .then(() => { console.log(new Error('FS operation failed')) })
+    .then(() => {
+      console.log('FS operation failed');
+      throw new Error('FS operation failed');
+    })
     .catch(() => {
       mkdir(newFolderPath)
         .then(() => {

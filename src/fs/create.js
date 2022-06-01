@@ -17,7 +17,10 @@ export const create = async () => {
   }
 
   writeFile(filePath, 'I am fresh and young', fileOptions)
-    .catch(() => console.log(new Error('FS operation failed')))
+    .catch(() => {
+      console.log('FS operation failed');
+      throw new Error('FS operation failed');
+    })
 };
 
 create();

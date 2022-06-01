@@ -6,20 +6,19 @@ export const list = async () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
 
-  const folderName = 'files';
+  const folderName = 'files-';
   const folderPath = join(__dirname, folderName);
 
   access(folderPath)
     .then(() => {
       readdir(folderPath)
         .then((files) => {
-          files.forEach(file => {
-            console.log(file);
-          });
+          console.log(files);
         })
     })
     .catch(() => {
-      console.log(new Error('FS operation failed'))
+      console.log('FS operation failed');
+      throw new Error('FS operation failed');
     })
 };
 

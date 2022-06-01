@@ -15,7 +15,8 @@ export const remove = async () => {
       unlink(filePath)
     })
     .catch(() => {
-      console.log(new Error('FS operation failed'));
+      console.log('FS operation failed');
+      throw new Error('FS operation failed');
     })
 };
 
