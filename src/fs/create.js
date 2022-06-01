@@ -1,6 +1,6 @@
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { access, writeFile } from 'fs/promises';
+import { writeFile } from 'fs/promises';
 
 export const create = async () => {
   const __filename = fileURLToPath(import.meta.url);
@@ -10,11 +10,14 @@ export const create = async () => {
   const fileName = 'fresh.txt';
   const filePath = join(__dirname, folderName, fileName);
 
-  access(filePath)
-    .then(() => console.log(new Error('FS operation failed')))
-    .catch(() => {
-      writeFile(filePath, 'I am fresh and young');
-    });
+  const fileOptions = {
+    encoding: 'utf8',
+    flag: 'wx',
+    mode: 0o644
+  }
+
+  writeFile(filePath, 'I am fresh and young', fileOptions)
+    .catch(() => console.log(new Error('FS operation failed')))
 };
 
 create();
