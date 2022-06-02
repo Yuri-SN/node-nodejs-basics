@@ -12,7 +12,7 @@ export const write = async () => {
 
   access(filePath)
     .then(() => {
-      const writableStream = fs.createWriteStream(filePath)
+      const writableStream = fs.createWriteStream(filePath, {flags: 'a'})
 
       process.stdin.on('data', (chunk) => {
         writableStream.write(chunk);

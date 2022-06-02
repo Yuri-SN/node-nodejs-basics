@@ -1,21 +1,54 @@
-// eslint-disable-next-line no-undef
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+  'env': {
+    'es2021': true,
+    'node': true
+  },
+  'extends': [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaVersion': 'latest',
+    'sourceType': 'module'
+  },
+  'plugins': [
+    '@typescript-eslint'
+  ],
+  'rules': {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'no-console': 'off',
+    // 'semi': [
+    //   'error',
+    //   'never'
+    // ],
+    'comma-dangle': [
+      'error',
+      'never'
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
+    'indent': 'off',
+    '@typescript-eslint/indent': [ 'error', 2 ],
+    // 'indent': [
+    //   'error',
+    //   2
+    // ],
+    'array-bracket-spacing': [
+      2,
+      'always',
+      {
+        'singleValue': true,
+        'objectsInArrays': true,
+        'arraysInArrays': false
+      }
     ],
-    "rules": {
-    }
+    '@typescript-eslint/no-empty-interface': [
+      'error',
+      {
+        'allowSingleExtends': true
+      }
+    ]
+  }
 }
