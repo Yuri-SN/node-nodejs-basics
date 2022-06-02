@@ -10,13 +10,9 @@ const calculationFrom = 10;
 const runWorker = (workerData) => {
   return new Promise((resolve, reject) => {
     const worker = new Worker(workerPath, { workerData });
-
     worker.on('message', (data) => resolve({ status: 'resolved', data }));
     worker.on('error', () => reject({ status: 'error', data: null }));
-    worker.on('exit', (code) => {
-      if (code !== 0)
-        reject(new Error(`Worker stopped with exit code ${code}`));
-    });
+    worker.on('exit', () => reject({ status: 'error', data: null }));
   });
 }
 
