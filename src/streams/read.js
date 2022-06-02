@@ -1,7 +1,7 @@
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 import { access } from 'fs/promises';
+import fs from 'fs';
 
 export const read = async () => {
   const __filename = fileURLToPath(import.meta.url);
